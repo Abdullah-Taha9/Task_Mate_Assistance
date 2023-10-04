@@ -1,0 +1,7 @@
+speechrecognition
+pyttsx3
+python-dotenv
+openai
+bardapi
+pyaudio
+requests
