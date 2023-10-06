@@ -11,7 +11,6 @@ BARD_KEY = os.getenv('BARDKEY')
 os.environ["_BARD_API_KEY"] = BARD_KEY
 
 
-# Continuing the conversation using a reusable session, without setting new conversation.
 session = requests.Session()
 session.headers = {
             "Host": "bard.google.com",
@@ -25,7 +24,6 @@ session.cookies.set("__Secure-1PSID", os.getenv("_BARD_API_KEY"))
 bard = Bard(session=session, timeout=30)
 
 
-# Converting Text to Speech, "Bard responses"
 def SpeakText(command):
 
     engine = pyttsx3.init()
@@ -35,7 +33,6 @@ def SpeakText(command):
 r = sr.Recognizer()
 
 
-# Speech to Text, "Microphone Input"
 def record_text():
  
     while(1):
@@ -57,7 +54,6 @@ def record_text():
             print("unkown error occured")
 
 
-# Send requests to Bard
 def send_to_bard(messages):
 
     response = bard.get_answer(messages)['content']
@@ -67,7 +63,6 @@ messages = '''Hi, Act like you are my virtual assistance, keep your resoponse as
               If you understand say only (Hi engineer Abdullah, I am tasker, your virtual assistance, How can I help you today)'''
 
 
-# Main
 while(1):
 
     response = send_to_bard(messages)
